@@ -1,0 +1,23 @@
+------------------  TEXT TO SPEECH----------------
+
+!pip install deep-translator gtts
+from gtts import gTTS
+import os
+
+def text_to_speech(text,language='en'):
+  tts=gTTS(text=text,lang=language,slow=False)
+  tts.save("output.mp3")
+  os.system("start output.mp3")
+
+input="hello! how are you"
+text_to_speech("input",'fr')
+
+
+
+------------------- FETCHING DATA FROM CURRENCY CONVERTER API --------------------------
+
+import requests
+api_url = "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json"
+response = requests.get(api_url)
+dict_a = response.json()
+dict_a
